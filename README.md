@@ -2,6 +2,8 @@
 
 My first full-stack project, built with React, Node.js and Express. This application allows users to create, read, update and delete tasks, demonstrating basic CRUD operations.
 
+The tasks are stored in the server, and it gets cleared at restart.
+
 ## How To Run Locally
 
 1. Clone this repository.
