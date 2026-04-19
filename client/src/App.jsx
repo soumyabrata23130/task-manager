@@ -4,7 +4,6 @@ import { getTasks, createTask, completeTask, deleteTask } from "./services/api";
 function App() {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
-  const [color, setColor] = useState("#1a1a1a");
 
   useEffect(() => {
     loadTasks();
@@ -18,19 +17,16 @@ function App() {
   const handleAdd = async () => {
     await createTask(title);
     setTitle("");
-    setColor("#1a1a1a");
     loadTasks();
   };
 
-  const handleComplete = async (id, completed) => {
-    await completeTask(id, completed);
-    setColor("teal");
+  const handleComplete = async (id) => {
+    await completeTask(id);
     loadTasks();
   };
 
   const handleDelete = async (id) => {
     await deleteTask(id);
-    setColor("#1a1a1a");
     loadTasks();
   };
 
@@ -53,7 +49,7 @@ function App() {
             <li key={task.id} className="flex gap-3 justify-between my-1">
               {task.title}
               <div className="flex gap-1">
-                <button style={{ backgroundColor: color }} className="complete" onClick={() => handleComplete(task.id, true)}>√</button>
+                <button className={task.completed ? "bg-blue-900" : ""} onClick={() => handleComplete(task.id)}>√</button>
                 <button onClick={() => handleDelete(task.id)}>x</button>
               </div>
             </li>

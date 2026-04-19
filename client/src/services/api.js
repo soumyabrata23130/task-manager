@@ -17,13 +17,12 @@ export const createTask = async (title) => {
 	return res.json();
 };
 
-export const completeTask = async (id, completed) => {
+export const completeTask = async (id) => {
 	const res = await fetch(`${BASE_URL}/tasks/${id}`, {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({ completed }),
+		}
 	});
 
 	return res.json();

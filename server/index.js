@@ -52,7 +52,7 @@ app.put("/tasks/:id", (req, res) => {
 	}
 
 	task.title = req.body.title ?? task.title;
-	task.completed = req.body.completed ?? task.completed;
+	task.completed = true;
 
 	res.json({
 		message: "Task updated",
