@@ -5,7 +5,8 @@ services:
       context: client
       dockerfile: ./Dockerfile
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
+    command: npm run dev
     ports:
       - 5173:5173
   server:
@@ -14,6 +15,6 @@ services:
       context: server
       dockerfile: ./Dockerfile
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     ports:
       - 3000:3000
