@@ -22,6 +22,11 @@ function App() {
 
   const handleComplete = async (id) => {
     await completeTask(id);
+    setTasks(prevTasks =>
+      prevTasks.map(t =>
+        t.id === id ? { ...t, completed: !t.completed } : t
+      )
+    );
     loadTasks();
   };
 
@@ -32,7 +37,7 @@ function App() {
 
   return (
     <div className="flex flex-col gap-8 h-screen items-center justify-center text-center">
-      <h1 className="text-4xl">Task Manager</h1>
+      <h1 className="text-3xl">Task Manager</h1>
 
       <div className="flex flex-col gap-3 items-left">
         <div className="flex gap-3">
@@ -44,6 +49,7 @@ function App() {
           <button onClick={handleAdd}>Add</button>
         </div>
 
+        <h2 className="text-2xl">Tasks</h2>
         <ul className="my-4">
           {tasks.map((task) => (
             <li key={task.id} className="flex gap-3 justify-between my-1">

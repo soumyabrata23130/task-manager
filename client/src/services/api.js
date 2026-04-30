@@ -22,7 +22,8 @@ export const completeTask = async (id) => {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json",
-		}
+		},
+		body: JSON.stringify({ completed: !currentStatus })
 	});
 
 	return res.json();

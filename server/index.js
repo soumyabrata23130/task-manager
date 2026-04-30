@@ -52,7 +52,9 @@ app.put("/tasks/:id", (req, res) => {
 	}
 
 	task.title = req.body.title ?? task.title;
-	task.completed = true;
+	if (typeof req.body.completed !== 'undefined') {
+    task.completed = req.body.completed;
+  }
 
 	res.json({
 		message: "Task updated",
