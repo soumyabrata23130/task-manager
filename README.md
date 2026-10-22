@@ -10,3 +10,6 @@ The tasks are stored in the server, and it gets cleared at restart.
 2. Run `npm install` at both client and server.
 3. Run the server first using `npm run dev`.
 4. Then run the client using `npm run dev`.
+
+## Known Issues
+1. The Vercel deployment fails to work as expected.
