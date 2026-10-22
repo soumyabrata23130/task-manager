@@ -7,12 +7,12 @@ app.use(cors());
 
 let tasks = [];
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
 	res.send("Server is working!");
 });
 
 // create
-app.post("/tasks", (req, res) => {
+app.post("/api/tasks", (req, res) => {
 	const newTask = {
 		id: Date.now().toString(),
 		title: req.body.title,
@@ -28,12 +28,12 @@ app.post("/tasks", (req, res) => {
 });
 
 // read all
-app.get("/tasks", (req, res) => {
+app.get("/api/tasks", (req, res) => {
 	res.json(tasks);
 });
 
 // read one
-app.get("/tasks/:id", (req, res) => {
+app.get("/api/tasks/:id", (req, res) => {
 	const task = tasks.find((t) => t.id === req.params.id);
 
 	if (!task) {
@@ -44,7 +44,7 @@ app.get("/tasks/:id", (req, res) => {
 });
 
 // update
-app.put("/tasks/:id", (req, res) => {
+app.put("/api/tasks/:id", (req, res) => {
 	const task = tasks.find((t) => t.id === req.params.id);
 
 	if (!task) {
@@ -63,7 +63,7 @@ app.put("/tasks/:id", (req, res) => {
 });
 
 // delete
-app.delete("/tasks/:id", (req, res) => {
+app.delete("/api/tasks/:id", (req, res) => {
 	const index = tasks.findIndex((t) => t.id === req.params.id);
 
 	if (index === -1) {
