@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = import.meta.env.VITE_BASE_URL || "http://localhost:3000";
 
 export const getTasks = async () => {
 	const res = await fetch(`${BASE_URL}/tasks`);
