@@ -17,7 +17,7 @@ export const createTask = async (title) => {
 	return res.json();
 };
 
-export const completeTask = async (id) => {
+export const completeTask = async (id, nextStatus) => {
 	const res = await fetch(`${BASE_URL}/tasks/${id}`, {
 		method: "PUT",
 		headers: {

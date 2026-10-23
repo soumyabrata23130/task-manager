@@ -21,12 +21,17 @@ function App() {
   };
 
   const handleComplete = async (id) => {
-    await completeTask(id);
-    setTasks(prevTasks =>
-      prevTasks.map(t =>
-        t.id === id ? { ...t, completed: !t.completed } : t
-      )
-    );
+    try {
+      const updated = await completeTask(id);
+      setTasks(prevTasks =>
+        prevTasks.map(t =>
+          (t.id === id ? updated.task : t)
+        )
+      );
+    }
+    catch(error) {
+      console.error("Failed to update task:", error)
+    }
     loadTasks();
   };
 
