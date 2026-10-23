@@ -58,9 +58,9 @@ function App() {
         <ul className="my-4">
           {tasks.map((task) => (
             <li key={task.id} className="flex gap-3 justify-between my-1">
-              {task.title}
+              <span className={task.completed ? "line-through" : ""}>{task.title}</span>
               <div className="flex gap-1">
-                <button className={task.completed ? "bg-blue-900" : ""} onClick={() => handleComplete(task.id)}>√</button>
+                <button onClick={() => handleComplete(task.id)}>√</button>
                 <button onClick={() => handleDelete(task.id)}>x</button>
               </div>
             </li>

@@ -44,7 +44,7 @@ app.get("/api/tasks/:id", (req, res) => {
 });
 
 // update
-app.put("/tasks/:id", (req, res) => {
+app.put("/api/tasks/:id", (req, res) => {
 	const task = tasks.find((t) => String(t.id) === req.params.id);
 
 	if (!task) {
@@ -74,7 +74,6 @@ app.delete("/api/tasks/:id", (req, res) => {
 
 	res.json({ message: "Task deleted" });
 });
-
 app.listen(3000, () => {
 	console.log("Server running on port 3000");
 });
