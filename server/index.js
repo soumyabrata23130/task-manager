@@ -44,13 +44,8 @@ app.get("/api/tasks/:id", (req, res) => {
 });
 
 // update
-<<<<<<< HEAD
-app.put("/api/tasks/:id", (req, res) => {
-	const task = tasks.find((t) => t.id === req.params.id);
-=======
 app.put("/tasks/:id", (req, res) => {
 	const task = tasks.find((t) => String(t.id) === req.params.id);
->>>>>>> ceab8f4 (	modified:   client/package-lock.json)
 
 	if (!task) {
 		return res.status(404).json({ message: "Task not found" });
