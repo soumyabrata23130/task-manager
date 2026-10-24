@@ -47,9 +47,11 @@ function App() {
       <div className="flex flex-col gap-3 items-left">
         <div className="flex gap-3">
           <input
+            className="px-2 rounded-md"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Enter task"
+            required
           />
           <button onClick={handleAdd}>Add</button>
         </div>

@@ -91,16 +91,6 @@ export default function App() {
             </a>
           </li>
         </ul>
-        <p>
-          Weather data provided by{" "}
-          <a
-            className="text-semibold hover:underline"
-            href="https://openweathermap.org/"
-          >
-            OpenWeather
-          </a>
-          .
-        </p>
       </div>
     </footer>
   );
